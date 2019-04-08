@@ -14,6 +14,6 @@ export class EventsAppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.checkAuthenticationStatus()
+    this.auth.checkAuthenticationStatus();
   }
 }

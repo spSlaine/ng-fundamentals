@@ -8,7 +8,7 @@ import {
     EventDetailsComponent,
     EventListResolver,
     EventResolver
-} from './events/index'
+} from './events/index';
 
 export const appRoutes: Routes = [
     {
@@ -30,4 +30,4 @@ export const appRoutes: Routes = [
     { path: '404', component: Error404Component },
     { path: '', redirectTo: '/events', pathMatch: 'full' },
     { path: 'user', loadChildren: './user/user.module#UserModule' }
-]
+];

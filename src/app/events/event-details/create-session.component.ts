@@ -1,5 +1,5 @@
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ISession, restrictedWords } from '../shared';
 import { controlNameBinding } from '@angular/forms/src/directives/reactive_directives/form_control_name';
 
@@ -11,23 +11,23 @@ import { controlNameBinding } from '@angular/forms/src/directives/reactive_direc
 
 export class CreateSessionComponent implements OnInit {
 
-    @Output() saveNewSession = new EventEmitter()
-    @Output() cancelAddSession = new EventEmitter()
+    @Output() saveNewSession = new EventEmitter();
+    @Output() cancelAddSession = new EventEmitter();
 
-    newSessionForm: FormGroup
-    name: FormControl
-    presenter: FormControl
-    duration: FormControl
-    level: FormControl
-    abstract: FormControl
+    newSessionForm: FormGroup;
+    name: FormControl;
+    presenter: FormControl;
+    duration: FormControl;
+    level: FormControl;
+    abstract: FormControl;
 
     ngOnInit(): void {
 
-        this.name = new FormControl('', Validators.required)
-        this.presenter = new FormControl('', Validators.required)
-        this.duration = new FormControl('', Validators.required)
-        this.level = new FormControl('', Validators.required)
-        this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), restrictedWords(['foo', 'bar'])])
+        this.name = new FormControl('', Validators.required);
+        this.presenter = new FormControl('', Validators.required);
+        this.duration = new FormControl('', Validators.required);
+        this.level = new FormControl('', Validators.required);
+        this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), restrictedWords(['foo', 'bar'])]);
 
         this.newSessionForm = new FormGroup({
             name: this.name,
@@ -35,7 +35,7 @@ export class CreateSessionComponent implements OnInit {
             duration: this.duration,
             level: this.level,
             abstract: this.abstract
-        })
+        });
 
     }
 
@@ -48,13 +48,12 @@ export class CreateSessionComponent implements OnInit {
             level: formValues.level,
             abstract: formValues.abstract,
             voters: []
-        }
+        };
 
-        this.saveNewSession.emit(session)
+        this.saveNewSession.emit(session);
     }
 
     cancel() {
-        this.cancelAddSession.emit()
+        this.cancelAddSession.emit();
     }
-
 }

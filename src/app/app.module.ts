@@ -1,8 +1,8 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'
+import { RouterModule, PreloadAllModules } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { Error404Component } from './errors/404.component';
@@ -24,19 +24,19 @@ import {
   LocationValidatorDirective,
   UpvoteComponent,
   EventResolver
-} from './events'
+} from './events';
 
-import { NavBarComponent } from './nav/navbar.component'
+import { NavBarComponent } from './nav/navbar.component';
 import { EventsAppComponent } from './events-app.component';
 import { appRoutes } from './routes';
 
-let toastr: Toastr = window['toastr']
-let jQuery = window['$']
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
@@ -83,8 +83,8 @@ export class AppModule { }
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty) {
-    return window.confirm('You have not saved this event, do you want to cancel?')
+    return window.confirm('You have not saved this event, do you want to cancel?');
   }
 
-  return true
+  return true;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { EventService } from './shared/event.service';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 import { IEvent } from '.';
 import { Observable } from 'rxjs';
 
@@ -13,6 +13,6 @@ export class EventResolver implements Resolve<IEvent> {
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IEvent> {
-        return this.eventService.getEvent(route.params['id'])
+        return this.eventService.getEvent(route.params['id']);
     }
 }

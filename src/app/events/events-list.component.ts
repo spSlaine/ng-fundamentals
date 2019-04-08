@@ -9,7 +9,7 @@ import { IEvent } from '.';
 })
 
 export class EventsListComponent implements OnInit {
-    events: IEvent[]
+    events: IEvent[];
 
     constructor(private eventService: EventService,
         private route: ActivatedRoute) {
@@ -17,6 +17,6 @@ export class EventsListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.events = this.route.snapshot.data['events']
+        this.events = this.route.snapshot.data['events'];
     }
 }
