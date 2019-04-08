@@ -18,7 +18,10 @@ import {
   SessionListComponent,
   CreateSessionComponent,
   EventService,
-  DurationPipe
+  DurationPipe,
+  VoterService,
+  LocationValidatorDirective,
+  UpvoteComponent
 } from './events'
 
 import { NavBarComponent } from './nav/navbar.component'
@@ -48,13 +51,16 @@ let jQuery = window['$']
     CollaspibeWellComponent,
     DurationPipe,
     SimpleModeComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent,
+    LocationValidatorDirective
   ],
   providers: [
     EventService,
     EventRouteActivator,
     EventListResolver,
     AuthService,
+    VoterService,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
