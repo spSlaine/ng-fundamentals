@@ -58,7 +58,5 @@ describe('VoterService', () => {
             expect(req.request.method).toBe("POST")
             req.flush({})
         })
-    
     })
-
 })
