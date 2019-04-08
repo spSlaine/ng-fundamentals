@@ -12,6 +12,6 @@ export class EventListResolver implements Resolve<IEvent[]> {
     }
 
     resolve() {
-        return this.eventService.getEvents().pipe(map(events => events))
+        return this.eventService.getEvents()
     }
 }
